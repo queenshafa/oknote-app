@@ -258,49 +258,255 @@ body {
   color: white;
 }
 
-footer {
-  padding: 2rem 0;
-  margin: 1rem;
+.footer {
   background-color: #4895ef;
-  border-radius: 30px;
-}
-footer .footer-content {
-  color: white;
-  padding-bottom: 13rem;
-}
-footer .footer-content .logo-container {
-  width: 40rem;
-  background-color: #f6ae2d;
-  border-radius: 14px;
-  padding: 1rem;
-}
-footer .footer-content .logo-container img {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  float: right;
-}
-footer .footer-content .logo-container h3 {
-  font-size: 5rem;
-  font-weight: 500;
-}
-footer .footer-content .title-container {
-  padding: 0.5rem;
-  background-color: white;
-  color: #4895ef;
+  font-size: 1.5rem;
+  padding: 1.5rem;
   text-align: center;
-  border-radius: 64px 64px 64px 0;
+  border-top: 2px solid #f6ae2d;
 }
-footer .footer-content a,
-footer .footer-content p {
+.footer p {
+  color: white;
+}
+
+.main-wrapper {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.sidebar {
+  width: 370px;
+  background: #4895ef;
+  background-image: url("/assets/img/faq-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0.1rem 30rem;
+  color: white;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.sidebar .sidebar-title {
+  font-family: "Instrument Serif";
+  font-size: 6rem;
+  color: white;
+  line-height: 1.1;
+}
+.sidebar .nav-link {
+  color: white;
+  font-size: 18px;
+  border-radius: 15px;
+}
+.sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+.sidebar .selected {
+  background-color: #f6ae2d;
+  border-radius: 15px;
+}
+.sidebar .logout-btn {
+  background: #f6ae2d;
+  border-radius: 12px;
+  font-weight: 600;
+  color: white;
+  padding: 10px 20px;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.logo {
+  width: 55px;
+}
+
+.logo-text {
+  font-size: 40px;
+  font-family: "Instrument Serif";
+  color: #f6ae2d;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  background-image: url("/assets/img/user-1.png");
+  border-radius: 50%;
+}
+
+.search-bar {
+  border: 2px solid #4895ef;
+  border-radius: 18px;
+  padding: 12px 20px;
+}
+
+.add-note-btn {
+  background: #4895ef;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 2px solid #4895ef;
+  font-size: 18px;
+}
+
+.dashboard-title {
   font-size: 3rem;
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
 }
-footer h2 {
-  line-height: 13rem;
-  font-size: 31.5rem;
-  font-weight: 500;
+
+.note-card {
+  padding: 2rem;
+  border-radius: 20px;
   color: white;
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.note-card hr {
+  border: none;
+  border-bottom: 1px solid white;
+}
+.note-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-card .delete-btn {
+  background-color: white;
+  height: 10px;
+  color: red;
+  padding: 1rem;
+  border-radius: 50px;
+  border: 1px solid white;
+  transition: 0.3s;
+}
+.note-card .delete-btn:hover {
+  background-color: red;
+  color: white;
+}
+.note-card.green {
+  background: #05c658;
+}
+.note-card.orange {
+  background: #ea7317;
+}
+.note-card.pink {
+  background: #d985b9;
+}
+.note-card.purple {
+  background: #9267f4;
+}
+
+h1 {
+  font-family: "Instrument Serif";
+  font-size: 5rem;
+  color: #080808;
+}
+
+.custom-input {
+  border: 2px solid #f6ae2d;
+}
+
+.editor-wrapper {
+  border: 3px solid #f6ae2d;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.textarea-toolbar {
+  border: 2px solid #f6ae2d;
+  border-radius: 12px;
+  padding: 6px 10px;
+  background: #fff;
+}
+.textarea-toolbar .tb-btn {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+.textarea-toolbar .tb-btn:hover {
+  background: #f6ae2d;
+  color: white;
+}
+
+.editor-toolbar {
+  border-bottom: 2px solid #f6ae2d;
+}
+.editor-toolbar .tool-btn {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.editor-toolbar .tool-btn:hover {
+  color: #f6ae2d;
+}
+
+.editor-area {
+  min-height: 300px;
+  background: white;
+  padding: 20px;
+  font-size: 17px;
+  border-radius: 0 0 20px 20px;
+  outline: none;
+}
+.editor-area:focus {
+  background: white;
+}
+
+.color-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.color-circle.purple {
+  background: #9267f4;
+}
+.color-circle.pink {
+  background: #d985b9;
+}
+.color-circle.yellow {
+  background: #f6ae2d;
+}
+.color-circle.orange {
+  background: #ea7317;
+}
+.color-circle.green {
+  background: #05c658;
+}
+.color-circle.selected {
+  outline: 3px solid #080808;
+}
+.color-circle:hover {
+  outline: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.update-btn {
+  background: #4895ef;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 18px;
+  border: none;
+  transition: 0.2s;
+}
+.update-btn:hover {
+  background: rgb(43.8603015075, 132.7005025126, 236.5396984925);
+}
+
+.icon-row i {
+  cursor: pointer;
+  color: #4895ef;
+}
+.icon-row i:hover {
+  color: #f6ae2d;
 }/*# sourceMappingURL=style.css.map */

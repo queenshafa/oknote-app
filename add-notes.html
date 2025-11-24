@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oknote</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="./my-css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="add-note" id="addNote">
+      <div class="container">
+        <div class="container-fluid py-4 edit-page">
+          <!-- Back Button -->
+          <a href="/dashboard.html" class="btn back-btn mb-3">
+            <i class="ri-arrow-left-line"></i> Back
+          </a>
+
+          <h1>Add A Note!</h1>
+
+          <!-- Title -->
+          <div class="mb-3">
+            <label class="form-label fw-bold">Title</label>
+            <input
+              type="text"
+              class="form-control custom-input"
+              placeholder="Put the title here.."
+            />
+          </div>
+
+          <!-- Category -->
+          <div class="mb-3 d-flex align-items-center gap-2">
+            <div class="flex-grow-1">
+              <label class="form-label fw-bold">Category</label>
+              <select class="form-select custom-input">
+                <option selected>Choose the Category</option>
+                <option>Personal</option>
+                <option>Work</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- DETAIL WITH TOOLBAR + TEXTAREA -->
+
+          <div class="editor-wrapper mb-4">
+            <!-- Toolbar -->
+            <div
+              class="editor-toolbar d-flex justify-content-center gap-3 px-3 py-2"
+            >
+              <button class="tool-btn" onclick="execCmd('bold')">
+                <b>B</b>
+              </button>
+              <button class="tool-btn" onclick="execCmd('italic')">
+                <i>I</i>
+              </button>
+              <button class="tool-btn" onclick="execCmd('underline')">
+                <u>U</u>
+              </button>
+
+              <button class="tool-btn" onclick="execCmd('insertUnorderedList')">
+                • List
+              </button>
+
+              <button class="tool-btn" onclick="execCmd('insertOrderedList')">
+                1.
+              </button>
+            </div>
+
+            <!-- CONTENTAREA -->
+            <div class="editor-area" contenteditable="true">
+              Put the detail here..
+            </div>
+          </div>
+
+          <!-- Textarea
+          <textarea
+            id="detailTextarea"
+            class="form-control custom-textarea"
+            rows="12"
+            placeholder="Put the detail here.."
+          ></textarea> -->
+
+          <!-- Color Picker -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Change Note Color</label>
+
+            <div class="d-flex gap-3 mt-2">
+              <div class="color-circle purple selected"></div>
+              <div class="color-circle pink"></div>
+              <div class="color-circle yellow"></div>
+              <div class="color-circle orange"></div>
+              <div class="color-circle green"></div>
+            </div>
+          </div>
+
+          <!-- Footer Row -->
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <button class="update-btn">Update Note</button>
+
+            <div class="d-flex gap-4 fs-4 icon-row">
+              <i class="ri-pushpin-fill"></i>
+              <i class="ri-heart-fill"></i>
+              <i class="ri-share-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script src="./js/ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
