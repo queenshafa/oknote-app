@@ -35,6 +35,11 @@
                 ><i class="ri-artboard-2-line"></i> Canvas</a
               >
             </li>
+            <li class="nav-item mb-3">
+              <a href="/pomodoro.html" class="nav-link"
+                ><i class="ri-timer-line"></i> Pomodoro Timer</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -81,9 +86,9 @@
         <!-- ALL NOTES -->
         <section class="mb-5">
           <h2 class="dashboard-title">All Notes</h2>
-          <div class="row g-4 mt-2">
-            <div class="col-md-4">
-              <div class="note-card orange h-100 d-flex flex-column">
+          <div class="row g-4 mt-2" id="notesList">
+            <!-- <div class="col-md-4">
+              <div class="note-card card-orange h-100 d-flex flex-column">
                 <h3>Pasar</h3>
                 <hr />
                 <p>
@@ -106,54 +111,15 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="note-card orange h-100 d-flex flex-column">
-                <h3>Pasar</h3>
-                <hr />
-                <p>Hallooo</p>
-                <div class="row d-flex mt-4">
-                  <div class="col-10">
-                    <span>14 / 09 / 23</span>
-                  </div>
-                  <div class="col-2">
-                    <a href="#" class="delete-btn"
-                      ><i class="ri-delete-bin-7-fill"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="note-card orange h-100 d-flex flex-column">
-                <h3>Pasar</h3>
-                <hr />
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Distinctio odio exercitationem in magnam ea atque sed amet
-                  cumque? Laudantium odit earum minima quasi corporis optio
-                  perspiciatis sunt alias doloribus dicta dignissimos numquam
-                  animi magni autem qui voluptate corrupti laborum, amet
-                  voluptates ut omnis, quidem nihil? Dolore, dolores dicta.
-                  Esse, laboriosam?
-                </p>
-                <div class="row d-flex mt-4">
-                  <div class="col-10">
-                    <span>14 / 09 / 23</span>
-                  </div>
-                  <div class="col-2">
-                    <a href="#" class="delete-btn"
-                      ><i class="ri-delete-bin-7-fill"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div> -->
           </div>
         </section>
       </main>
     </div>
 
+    <script src="/js/ui.js"></script>
+    <script src="/js/notesManager.js"></script>
+    <script src="/js/data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -33,52 +33,74 @@ body {
 
 // Navbar
 .custom-navbar {
-  //   color: $secondary;
   background-color: $primary;
-  .custom-navbar-nav {
-    li {
-      margin-right: 30px;
-      a {
-        font-weight: 500;
-        color: $white;
-        position: relative;
-        z-index: 1;
-        transition: 0.3s all ease;
+  .floating-navbar {
+    width: 85%; // biar dia ga full, jadi ngambang
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 28px;
 
-        &:before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 8px;
-          right: 8px;
-          background: $secondary;
-          height: 5px;
-          visibility: visible;
-          width: 0;
-          transition: 0.15s all ease-out;
-        }
-        &:hover {
-          opacity: 1;
-          &:before {
-            width: calc(100% - 16px);
-          }
-        }
-      }
-      //   &.active {
-      //     a {
-      //       opacity: 1;
-      //       color: $white;
-      //       &::before {
-      //         width: calc(100% - 16px);
-      //       }
-      //     }
-      //   }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.35); // efek glass
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .nav-logo {
+    display: flex;
+    background-color: $white;
+    padding: 0.5rem;
+    border-radius: 50px;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 40px;
+    }
+
+    span {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #f6ae2d; // warna logo kamu
     }
   }
-  .navbar-brand {
-    color: $white;
-    font-size: 32px;
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    gap: 40px;
+
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: white;
+        transition: 0.2s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .nav-btn {
+    padding: 12px 26px;
+    border-radius: 40px;
+    background: $white;
+    color: $primary;
     font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -86,22 +108,50 @@ body {
 .hero {
   //   position: absolute;
   //   z-index: -1;
-  height: 100vh;
+  padding: 2rem 4rem;
+  height: 90vh;
   width: 100vw;
   background-image: url("/assets/img/hero-bg.png");
   background-size: cover;
 
-  h1 {
-    font-family: "Instrument Serif";
-    font-size: 8rem;
-    // padding: 2rem;
-    color: $white;
+  .tagline {
+    font-size: 1.2rem;
+    color: white;
+    transition: 0.2s;
+    width: 15rem;
+    height: 45px;
+    margin: auto;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.35); // efek glass
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .title-wrapper {
+    width: 40rem;
+    margin: auto;
+    h1 {
+      font-family: "Instrument Serif";
+      font-size: 8rem;
+      // margin: auto 15rem;
+      color: $white;
+    }
   }
 
   .mockup {
     width: 100%;
+    height: 18.5rem;
+    padding: 1rem;
+    margin: auto;
     background-color: $white;
-    border-radius: 24px;
+    border-radius: 24px 24px 0 0;
+
+    img {
+      width: 100%;
+      height: 17.5rem;
+      border-radius: 12px 12px 0 0;
+    }
   }
 }
 
@@ -121,7 +171,7 @@ body {
   &:hover {
     color: $white;
     background: $primary;
-    border-color: darken($white, 5%);
+    // border-color: darken($white, 5%);
   }
 
   &.btn-secondary {
@@ -131,7 +181,7 @@ body {
     &:hover {
       color: $secondary;
       background: $white;
-      border-color: darken($secondary, 5%);
+      // border-color: darken($secondary, 5%);
     }
   }
 }
@@ -142,6 +192,11 @@ body {
 
   .about-box {
     background-color: $primary;
+    // background-image: url("/assets/img/testimonial-bg.png");
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-size: 100rem;
+    // background-position: auto auto 16rem auto;
     padding: 2rem;
     border-radius: 28px;
 
@@ -329,19 +384,35 @@ body {
       color: $white;
     }
   }
+  .accordion {
+    .accordion-item {
+      margin: 1rem auto;
+      border-radius: 15px;
+      overflow: hidden;
+
+      .accordion-button {
+        border-radius: 15px;
+      }
+
+      .accordion-header {
+        h2 {
+          color: $primary;
+        }
+      }
+    }
+  }
 }
 
 // Footer Section
 .footer {
-  background-color: $primary;
-  font-size: 1.5rem;
-  padding: 1.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: auto;
   text-align: center;
-  // margin-top: 4rem;
-  border-top: 2px solid $secondary;
+  border-top: 2px solid $primary;
 
   p {
-    color: $white;
+    color: $secondary;
   }
 }
 
@@ -486,19 +557,6 @@ body {
       color: $white;
     }
   }
-
-  &.green {
-    background: $green;
-  }
-  &.orange {
-    background: $orange;
-  }
-  &.pink {
-    background: $pink;
-  }
-  &.purple {
-    background: $purple;
-  }
 }
 
 // ADD NOTES PAGE
@@ -568,9 +626,9 @@ h1 {
   border-radius: 0 0 20px 20px;
   outline: none;
 
-  &:focus {
-    background: lighten($white, 2%);
-  }
+  // &:focus {
+  //   background: lighten($white, 2%);
+  // }
 }
 
 // COLORS
@@ -615,9 +673,9 @@ h1 {
   border: none;
   transition: 0.2s;
 
-  &:hover {
-    background: darken($primary, 6%);
-  }
+  // &:hover {
+  //   background: darken($primary, 6%);
+  // }
 }
 
 // ICONS
@@ -628,4 +686,79 @@ h1 {
   &:hover {
     color: $secondary;
   }
+}
+
+// Pomodoro Timer Page
+.timer {
+  display: inline-block;
+  padding: 10px;
+  width: 600px;
+  box-sizing: border-box;
+
+  h1 {
+    font-size: 6rem;
+    // width: 8rem;
+    margin: 20px auto;
+  }
+
+  .timer-display {
+    font-size: 15rem;
+    padding: 5rem 0 5rem 0;
+    font-weight: bold;
+  }
+
+  #buttons {
+    margin-top: 20px;
+
+    #start,
+    #stop {
+      background-color: $primary;
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      transition: ease-in-out 0.2s;
+
+      &:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  #timer-message {
+    color: white;
+    background-color: $primary;
+    display: none;
+    padding: 0.5em;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 1em;
+  }
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  .button {
+    background-color: $primary;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+}
+
+.hidden {
+  display: block;
 }

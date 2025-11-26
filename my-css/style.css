@@ -10,55 +10,107 @@ body {
 .custom-navbar {
   background-color: #4895ef;
 }
-.custom-navbar .custom-navbar-nav li {
-  margin-right: 30px;
+.custom-navbar .floating-navbar {
+  width: 85%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
-.custom-navbar .custom-navbar-nav li a {
-  font-weight: 500;
+.custom-navbar .nav-logo {
+  display: flex;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 50px;
+  align-items: center;
+  gap: 10px;
+}
+.custom-navbar .nav-logo img {
+  width: 40px;
+}
+.custom-navbar .nav-logo span {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #f6ae2d;
+}
+.custom-navbar .nav-links {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 40px;
+}
+.custom-navbar .nav-links li {
+  list-style: none;
+}
+.custom-navbar .nav-links li a {
+  text-decoration: none;
+  font-size: 1.2rem;
   color: white;
-  position: relative;
-  z-index: 1;
-  transition: 0.3s all ease;
+  transition: 0.2s;
 }
-.custom-navbar .custom-navbar-nav li a:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 8px;
-  right: 8px;
-  background: #f6ae2d;
-  height: 5px;
-  visibility: visible;
-  width: 0;
-  transition: 0.15s all ease-out;
+.custom-navbar .nav-links li a:hover {
+  opacity: 0.7;
 }
-.custom-navbar .custom-navbar-nav li a:hover {
-  opacity: 1;
-}
-.custom-navbar .custom-navbar-nav li a:hover:before {
-  width: calc(100% - 16px);
-}
-.custom-navbar .navbar-brand {
-  color: white;
-  font-size: 32px;
+.custom-navbar .nav-btn {
+  padding: 12px 26px;
+  border-radius: 40px;
+  background: white;
+  color: #4895ef;
   font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
 }
 
 .hero {
-  height: 100vh;
+  padding: 2rem 4rem;
+  height: 90vh;
   width: 100vw;
   background-image: url("/assets/img/hero-bg.png");
   background-size: cover;
 }
-.hero h1 {
+.hero .tagline {
+  font-size: 1.2rem;
+  color: white;
+  transition: 0.2s;
+  width: 15rem;
+  height: 45px;
+  margin: auto;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.hero .title-wrapper {
+  width: 40rem;
+  margin: auto;
+}
+.hero .title-wrapper h1 {
   font-family: "Instrument Serif";
   font-size: 8rem;
   color: white;
 }
 .hero .mockup {
   width: 100%;
+  height: 18.5rem;
+  padding: 1rem;
+  margin: auto;
   background-color: white;
-  border-radius: 24px;
+  border-radius: 24px 24px 0 0;
+}
+.hero .mockup img {
+  width: 100%;
+  height: 17.5rem;
+  border-radius: 12px 12px 0 0;
 }
 
 .section-title {
@@ -78,7 +130,6 @@ body {
 .btn:hover {
   color: white;
   background: #4895ef;
-  border-color: rgb(242.25, 242.25, 242.25);
 }
 .btn.btn-secondary {
   color: white;
@@ -88,7 +139,6 @@ body {
 .btn.btn-secondary:hover {
   color: #f6ae2d;
   background: white;
-  border-color: rgb(244.9520547945, 164.5684931507, 20.5479452055);
 }
 
 .about {
@@ -257,16 +307,27 @@ body {
   font-size: 8rem;
   color: white;
 }
+.faq .accordion .accordion-item {
+  margin: 1rem auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.faq .accordion .accordion-item .accordion-button {
+  border-radius: 15px;
+}
+.faq .accordion .accordion-item .accordion-header h2 {
+  color: #4895ef;
+}
 
 .footer {
-  background-color: #4895ef;
-  font-size: 1.5rem;
-  padding: 1.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: auto;
   text-align: center;
-  border-top: 2px solid #f6ae2d;
+  border-top: 2px solid #4895ef;
 }
 .footer p {
-  color: white;
+  color: #f6ae2d;
 }
 
 .main-wrapper {
@@ -388,18 +449,6 @@ body {
   background-color: red;
   color: white;
 }
-.note-card.green {
-  background: #05c658;
-}
-.note-card.orange {
-  background: #ea7317;
-}
-.note-card.pink {
-  background: #d985b9;
-}
-.note-card.purple {
-  background: #9267f4;
-}
 
 h1 {
   font-family: "Instrument Serif";
@@ -458,9 +507,6 @@ h1 {
   border-radius: 0 0 20px 20px;
   outline: none;
 }
-.editor-area:focus {
-  background: white;
-}
 
 .color-circle {
   width: 35px;
@@ -499,9 +545,6 @@ h1 {
   border: none;
   transition: 0.2s;
 }
-.update-btn:hover {
-  background: rgb(43.8603015075, 132.7005025126, 236.5396984925);
-}
 
 .icon-row i {
   cursor: pointer;
@@ -509,4 +552,70 @@ h1 {
 }
 .icon-row i:hover {
   color: #f6ae2d;
+}
+
+.timer {
+  display: inline-block;
+  padding: 10px;
+  width: 600px;
+  box-sizing: border-box;
+}
+.timer h1 {
+  font-size: 6rem;
+  margin: 20px auto;
+}
+.timer .timer-display {
+  font-size: 15rem;
+  padding: 5rem 0 5rem 0;
+  font-weight: bold;
+}
+.timer #buttons {
+  margin-top: 20px;
+}
+.timer #buttons #start,
+.timer #buttons #stop {
+  background-color: #4895ef;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+.timer #buttons #start:hover,
+.timer #buttons #stop:hover {
+  background-color: #f6ae2d;
+}
+.timer #timer-message {
+  color: white;
+  background-color: #4895ef;
+  display: none;
+  padding: 0.5em;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 1em;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.button-container .button {
+  background-color: #4895ef;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+.button-container .button:hover {
+  background-color: #f6ae2d;
+}
+
+.hidden {
+  display: block;
 }/*# sourceMappingURL=style.css.map */
