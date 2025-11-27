@@ -537,23 +537,35 @@ body {
 
   p {
     display: -webkit-box;
-    -webkit-line-clamp: 5; // maksimal 3 baris
+    -webkit-line-clamp: 3; // maksimal 3 baris
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .delete-btn {
-    background-color: $white;
-    height: 10px;
-    color: red;
-    padding: 1rem;
-    border-radius: 50px;
-    border: 1px solid $white;
-    transition: 0.3s;
+  .delete-btn,
+  .share-btn,
+  .edit-btn {
+    background-color: $white; /* Green background */
+    border: none; /* Remove default border */
+    color: $primary; /* White text */
+    padding: 0.5rem 1rem; /* Some padding */
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Increase font size */
+    cursor: pointer; /* Change mouse cursor to a pointer */
+    border-radius: 20px; /* Rounded corners */
+    transition-duration: 0.4s;
 
-    &:hover {
+    &.delete-btn:hover {
       background-color: red;
+      color: $white;
+    }
+    &.share-btn:hover {
+      background-color: $primary;
+      color: $white;
+    }
+    &.edit-btn:hover {
+      background-color: $secondary;
       color: $white;
     }
   }
@@ -690,7 +702,7 @@ h1 {
 
 // Pomodoro Timer Page
 
-.content {
+.pomodoro-content {
   background-image: url("/assets/img/testimonial-bg.png");
   background-size: cover;
 }
