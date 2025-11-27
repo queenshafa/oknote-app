@@ -338,6 +338,7 @@ body {
 
 .sidebar {
   width: 370px;
+  flex-shrink: 0;
   background: #4895ef;
   background-image: url("/assets/img/faq-bg.png");
   background-size: cover;
