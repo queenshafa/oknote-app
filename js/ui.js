@@ -24,10 +24,6 @@ function renderNotes(listData = null) {
 
             <div class="col-4 d-flex justify-content-end gap-2">
 
-              <button class="share-btn" formtarget="_blank" onclick="goView(${note.id})">
-                <i class="ri-share-fill"></i>
-              </button>
-
               <button class="edit-btn" onclick="goEdit(${note.id})">
                 <i class="ri-edit-2-fill"></i>
               </button>
@@ -47,28 +43,6 @@ function renderNotes(listData = null) {
 window.handleDelete = (id) => {
   deleteNote(id);
   renderNotes();
-};
-
-window.shareNote = async (id) => {
-  const note = getNotes().find((n) => n.id === id);
-  const text = `*${note.title}*\n\n${note.description.replace(/<[^>]+>/g, "")}`;
-
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: note.title,
-        text,
-      });
-    } catch {}
-    return;
-  }
-
-  try {
-    await navigator.clipboard.writeText(text);
-    alert("Berhasil disalin!");
-  } catch {
-    alert("Gagal menyalin.");
-  }
 };
 
 window.goEdit = (id) => {

@@ -545,7 +545,6 @@ body {
   }
 
   .delete-btn,
-  .share-btn,
   .edit-btn {
     background-color: $white; /* Green background */
     border: none; /* Remove default border */
@@ -554,14 +553,10 @@ body {
     text-align: center; /* Center the text */
     font-size: 16px; /* Increase font size */
     cursor: pointer; /* Change mouse cursor to a pointer */
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 14px; /* Rounded corners */
     transition-duration: 0.4s;
 
     &.delete-btn:hover {
-      background-color: red;
-      color: $white;
-    }
-    &.share-btn:hover {
       background-color: $primary;
       color: $white;
     }

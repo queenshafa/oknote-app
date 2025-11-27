@@ -438,7 +438,6 @@ body {
   text-overflow: ellipsis;
 }
 .note-card .delete-btn,
-.note-card .share-btn,
 .note-card .edit-btn {
   background-color: white; /* Green background */
   border: none; /* Remove default border */
@@ -447,23 +446,15 @@ body {
   text-align: center; /* Center the text */
   font-size: 16px; /* Increase font size */
   cursor: pointer; /* Change mouse cursor to a pointer */
-  border-radius: 20px; /* Rounded corners */
+  border-radius: 14px; /* Rounded corners */
   transition-duration: 0.4s;
 }
 .note-card .delete-btn.delete-btn:hover,
-.note-card .share-btn.delete-btn:hover,
 .note-card .edit-btn.delete-btn:hover {
-  background-color: red;
-  color: white;
-}
-.note-card .delete-btn.share-btn:hover,
-.note-card .share-btn.share-btn:hover,
-.note-card .edit-btn.share-btn:hover {
   background-color: #4895ef;
   color: white;
 }
 .note-card .delete-btn.edit-btn:hover,
-.note-card .share-btn.edit-btn:hover,
 .note-card .edit-btn.edit-btn:hover {
   background-color: #f6ae2d;
   color: white;
