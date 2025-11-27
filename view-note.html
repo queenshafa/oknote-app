@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Note</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="./my-css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container py-4">
+      <a href="/dashboard.html" class="btn btn-dark mb-3">
+        <i class="ri-arrow-left-line"></i> Kembali
+      </a>
+
+      <div id="viewNoteCard" class="note-card p-4">
+        <h2 id="viewTitle" class="fs-1 fw-bold mb-3"></h2>
+        <span
+          class="badge bg-white text-dark fs-4 mb-3"
+          id="viewCategory"
+        ></span>
+        <p id="viewDate" class="text-white"></p>
+
+        <hr />
+
+        <div id="viewDescription" class="note-text"></div>
+
+        <div class="mt-4 d-flex gap-3">
+          <button class="btn" id="shareBtn">
+            <i class="ri-share-fill"></i> Bagikan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/viewNote.js"></script>
+  </body>
+</html>

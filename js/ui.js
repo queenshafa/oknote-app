@@ -1,8 +1,5 @@
-// import { getNotes, deleteNote } from "./data.js";
-
-// Render notes di dashboard
-function renderNotes() {
-  const notes = getNotes();
+function renderNotes(listData = null) {
+  const notes = listData || getNotes();
   const list = document.getElementById("notesList");
 
   list.innerHTML = "";
@@ -11,18 +8,34 @@ function renderNotes() {
     list.innerHTML += `
       <div class="col-md-4">
         <div class="note-card card-${note.color} h-100 d-flex flex-column">
-          <h3>${note.title}</h3>
+          
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>${note.title}</h3>
+            <span class="badge bg-light text-dark">${note.category}</span>
+          </div>
+
           <hr />
           <p class="note-text">${note.description}</p>
 
-          <div class="row mt-auto">
-            <div class="col-10">
+          <div class="row mt-auto align-items-center">
+            <div class="col-8">
               <span>${note.date}</span>
             </div>
-            <div class="col-2">
+
+            <div class="col-4 d-flex justify-content-end gap-2">
+
+              <button class="share-btn" formtarget="_blank" onclick="goView(${note.id})">
+                <i class="ri-share-fill"></i>
+              </button>
+
+              <button class="edit-btn" onclick="goEdit(${note.id})">
+                <i class="ri-edit-2-fill"></i>
+              </button>
+
               <button class="delete-btn" onclick="handleDelete(${note.id})">
                 <i class="ri-delete-bin-7-fill"></i>
               </button>
+
             </div>
           </div>
         </div>
@@ -31,27 +44,70 @@ function renderNotes() {
   });
 }
 
-function getNotes() {
-  return JSON.parse(localStorage.getItem("notes") || "[]");
-}
-
-// --- Simpan Notes ---
-function saveNotes(notes) {
-  localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
-}
-
-function deleteNote(id) {
-  const notes = getNotes().filter((n) => n.id !== id);
-  saveNotes(notes);
-}
-
-// Hapus note
 window.handleDelete = (id) => {
   deleteNote(id);
   renderNotes();
 };
 
-// Auto render saat dashboard dibuka
+window.shareNote = async (id) => {
+  const note = getNotes().find((n) => n.id === id);
+  const text = `*${note.title}*\n\n${note.description.replace(/<[^>]+>/g, "")}`;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: note.title,
+        text,
+      });
+    } catch {}
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    alert("Berhasil disalin!");
+  } catch {
+    alert("Gagal menyalin.");
+  }
+};
+
+window.goEdit = (id) => {
+  localStorage.setItem("editId", id);
+  window.location.href = "/add-notes.html";
+  document.getElementById("addNoteTitle");
+};
+
+window.goView = (id) => {
+  window.location.href = `/view-note.html?id=${id}`;
+};
+
 if (document.getElementById("notesList")) {
   renderNotes();
 }
+
+// Search bar
+const searchInput = document.getElementById("search");
+
+// Event listener saat user mengetik
+searchInput.addEventListener("keyup", function () {
+  const keyword = this.value.toLowerCase().trim();
+
+  // Ambil seluruh notes
+  const notes = getNotes();
+
+  // Filter data berdasarkan keyword
+  const filteredNotes = notes.filter((note) => {
+    const title = note.title.toLowerCase();
+    const category = note.category.toLowerCase();
+    const desc = note.description.toLowerCase();
+
+    return (
+      title.includes(keyword) ||
+      category.includes(keyword) ||
+      desc.includes(keyword)
+    );
+  });
+
+  // Render hasil pencarian
+  renderNotes(filteredNotes);
+});

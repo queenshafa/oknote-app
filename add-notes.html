@@ -20,7 +20,7 @@
             <i class="ri-arrow-left-line"></i> Back
           </a>
 
-          <h1>Add A Note!</h1>
+          <h1 id="addNoteTitle">Add A Note!</h1>
 
           <!-- Title -->
           <form id="noteForm">
@@ -116,51 +116,21 @@
             <div class="mb-4">
               <label class="form-label fw-bold">Change Note Color</label>
 
-              <div class="d-flex gap-3 mt-2" id="color">
-                <div class="color-circle purple" data-color="purple">
-                  <input
-                    type="hidden"
-                    name="color"
-                    id="colorValue"
-                    value="purple"
-                  />
-                </div>
-                <div class="color-circle pink" data-color="pink">
-                  <input
-                    type="hidden"
-                    name="color"
-                    id="colorValue"
-                    value="pink"
-                  />
-                </div>
-                <div class="color-circle yellow" data-color="yellow">
-                  <input
-                    type="hidden"
-                    name="color"
-                    id="colorValue"
-                    value="yellow"
-                  />
-                </div>
-                <div class="color-circle orange" data-color="orange">
-                  <input
-                    type="hidden"
-                    name="color"
-                    id="colorValue"
-                    value="orange"
-                  />
-                </div>
-                <div class="color-circle green" data-color="green">
-                  <input
-                    type="hidden"
-                    name="color"
-                    id="colorValue"
-                    value="green"
-                  />
-                </div>
+              <div class="d-flex gap-3 mt-2 mb-3" id="color">
+                <div class="color-circle purple" data-color="purple"></div>
+                <div class="color-circle pink" data-color="pink"></div>
+                <div class="color-circle yellow" data-color="yellow"></div>
+                <div class="color-circle orange" data-color="orange"></div>
+                <div class="color-circle green" data-color="green"></div>
               </div>
 
-              <!-- <input name="color" id="colorValue" value="purple" /> -->
-            </div>
+              <input
+                type="hidden"
+                name="color"
+                id="colorValue"
+                value="purple"
+              />
+
 
             <button type="submit" class="update-btn">Submit</button>
           </form>
@@ -180,10 +150,9 @@
     </section>
 
     <!-- JS -->
-    <script src="/js/ui.js"></script>
-    <script src="/js/notesManager.js"></script>
-    <script src="/js/data.js"></script>
-    <script src="/js/map.js"></script>
+   <script src="/js/data.js"></script>
+<script src="/js/notesManager.js"></script>
+<script src="/js/ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

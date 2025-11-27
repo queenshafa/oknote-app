@@ -1,14 +1,36 @@
-// import { addNote } from "./data.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("noteForm");
   if (!form) return;
 
-  // convert editor html ke input hidden
+  const editId = localStorage.getItem("editId");
+  let editNoteData = null;
+
+  // Kalau mode edit → isi field dulu
+  if (editId) {
+    const notes = getNotes();
+    editNoteData = notes.find((n) => n.id == editId);
+
+    if (editNoteData) {
+      document.getElementById("title").value = editNoteData.title;
+      document.getElementById("category").value = editNoteData.category;
+      document.getElementById("descriptionEditor").innerHTML =
+        editNoteData.description;
+      document.getElementById("colorValue").value = editNoteData.color;
+    }
+  }
+
+  // Color selector
+  document.querySelectorAll(".color-circle").forEach((circle) => {
+    circle.addEventListener("click", () => {
+      const selected = circle.getAttribute("data-color");
+      document.getElementById("colorValue").value = selected;
+    });
+  });
+
+  // Submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // ambil data form
     const title = document.getElementById("title").value.trim();
     const category = document.getElementById("category").value;
     const description = document.getElementById("descriptionEditor").innerHTML;
@@ -19,25 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // bikin object note baru
     const note = {
-      id: Date.now(),
+      id: editId ? Number(editId) : Date.now(),
       title,
       category,
       description,
       color,
       date: new Date().toLocaleDateString("id-ID"),
+      favorite: editNoteData ? editNoteData.favorite : false,
     };
 
-    addNote(note);
+    if (editId) {
+      updateNote(note);
+      localStorage.removeItem("editId");
+    } else {
+      addNote(note);
+    }
 
-    // redirect ke dashboard
     window.location.href = "/dashboard.html";
   });
 });
-
-function addNote(note) {
-  const notes = getNotes();
-  notes.push(note);
-  saveNotes(notes);
-}
