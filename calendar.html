@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!"
+    />
+    <meta
+      name="keywords"
+      content="calendar, events, reminders, javascript, html, css, open source coding"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Calendar with Events</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="./my-css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="d-flex main-wrapper">
+      <!-- SIDEBAR -->
+      <aside class="sidebar d-flex flex-column justify-content-between p-4">
+        <div>
+          <h1 class="sidebar-title">
+            Hello,<br /><span id="sidebarName">Kayyasa</span>!
+          </h1>
+
+          <ul class="nav flex-column mt-5">
+            <li class="nav-item mb-3">
+              <a href="/dashboard.html" class="nav-link"
+                ><i class="ri-booklet-fill"></i> Notes</a
+              >
+            </li>
+            <li class="nav-item mb-3">
+              <a href="/calendar.html" class="nav-link selected"
+                ><i class="ri-calendar-line"></i> Calender</a
+              >
+            </li>
+            <li class="nav-item mb-3">
+              <a href="/canvas.html" class="nav-link"
+                ><i class="ri-artboard-2-line"></i> Canvas</a
+              >
+            </li>
+            <li class="nav-item mb-3">
+              <a href="/pomodoro.html" class="nav-link"
+                ><i class="ri-timer-line"></i> Pomodoro Timer</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <a href="/index.html" class="logout-btn btn">
+          <i class="ri-logout-box-line"></i> Log Out
+        </a>
+      </aside>
+      <main class="content p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="d-flex align-items-center">
+            <img src="./assets/img/oknote-logo.svg" class="logo" />
+            <h2 class="logo-text ms-2">Oknote</h2>
+          </div>
+
+          <div class="profile d-flex align-items-center">
+            <div class="profile-img"></div>
+            <div class="ms-2">
+              <strong id="topbarName">Kayyasa</strong><br />
+              <small>admin</small>
+            </div>
+          </div>
+        </div>
+        <div class="calendar-container">
+          <div class="left">
+            <div class="calendar">
+              <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">december 2015</div>
+                <i class="fas fa-angle-right next"></i>
+                <button class="add-note-btn">
+                  <span class="icon"> <i class="fas fa-plus"></i></span>
+                  <span>Add Today</span>
+                </button>
+              </div>
+
+              <div class="goto-today">
+                <div class="goto">
+                  <input type="text" placeholder="mm/yyyy" class="date-input" />
+                  <button class="goto-btn">Go</button>
+                </div>
+                <button class="today-btn">Today</button>
+              </div>
+              <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+              </div>
+              <div class="days"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- modal add event -->
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Add notes</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+
+        <textarea class="note-text" placeholder="Whats your agenda?"></textarea>
+
+        <div class="time-row">
+          <input
+            type="text"
+            class="time-from"
+            placeholder="Your agenda time from?"
+          />
+          <input
+            type="text"
+            class="time-to"
+            placeholder="Your agenda time to?"
+          />
+        </div>
+
+        <h5 class="color-label">Choose Color</h5>
+
+        <div class="color-options">
+          <div class="color-circle purple" data-color="#A86CFF"></div>
+          <div class="color-circle yellow" data-color="#FFD447"></div>
+          <div class="color-circle pink" data-color="#FF6F91"></div>
+          <div class="color-circle orange" data-color="#FF8C42"></div>
+          <div class="color-circle green" data-color="#4CAF50"></div>
+          <div class="color-circle blue" data-color="#5BC0EB"></div>
+        </div>
+
+        <button class="add-note-submit">Add Notes</button>
+      </div>
+    </div>
+
+    <!-- DETAIL MODAL -->
+    <div class="detail-modal-overlay">
+      <div class="detail-modal">
+        <h2 class="detail-title"></h2>
+        <p class="detail-time"></p>
+
+        <div class="detail-color-preview"></div>
+
+        <!-- DELETE khusus event ini -->
+        <button class="detail-delete-btn">Delete</button>
+
+        <!-- Close -->
+        <button class="detail-close-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="/js/calendar.js"></script>
+  </body>
+</html>

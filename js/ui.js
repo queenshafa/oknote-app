@@ -1,3 +1,19 @@
+// Ambil user dari localStorage
+const user = JSON.parse(localStorage.getItem("user"));
+
+// Kalau ada user (berhasil login)
+if (user) {
+  const sidebarName = document.getElementById("sidebarName");
+  const topbarName = document.getElementById("topbarName");
+
+  // Replace nama
+  if (sidebarName) sidebarName.textContent = user.name;
+  if (topbarName) topbarName.textContent = user.name;
+} else {
+  // Kalau ga ada user -> user belum login -> balikin ke login page
+  window.location.href = "/index.html";
+}
+
 function renderNotes(listData = null) {
   const notes = listData || getNotes();
   const list = document.getElementById("notesList");
