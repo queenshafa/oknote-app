@@ -342,7 +342,7 @@ body {
     .testimonial-card {
       // gap: 1rem;
       width: 23rem;
-      height: 26rem;
+      height: 22rem;
       margin-right: 1rem;
       color: $white;
       border-radius: 28px;
@@ -976,7 +976,7 @@ h1 {
     border-radius: 16px;
     border: 4px solid $primary;
     background: $white;
-    color: white;
+    color: $black;
     font-size: 17px;
     line-height: 1.4;
     outline: none;
@@ -2113,7 +2113,7 @@ $primary-clr: #4895ef;
         background: #6aa6ff;
       }
 
-      .color-circle.selected {
+      .color-circle.color-selected {
         border-color: rgb(245, 244, 244);
       }
 
