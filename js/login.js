@@ -21,7 +21,7 @@ signUpForm.addEventListener("submit", function (e) {
   const password = signUpForm.querySelector('input[type="password"]').value;
 
   if (!name || !email || !password) {
-    alert("Semua field wajib diisi!");
+    alert("Please fill all field.");
     return;
   }
 
@@ -34,7 +34,7 @@ signUpForm.addEventListener("submit", function (e) {
 
   localStorage.setItem("user", JSON.stringify(userData));
 
-  alert("Registrasi berhasil! Silakan login.");
+  alert("Registration Success! Please Login.");
   container.classList.remove("active"); // balik ke form login
 });
 
@@ -50,7 +50,7 @@ signInForm.addEventListener("submit", function (e) {
   const user = JSON.parse(localStorage.getItem("user"));
 
   if (!user) {
-    alert("Belum ada akun! Daftar dulu.");
+    alert("You have no account! Please create one first!");
     return;
   }
 
@@ -58,6 +58,6 @@ signInForm.addEventListener("submit", function (e) {
     // redirect ke dashboard
     window.location.href = "dashboard.html";
   } else {
-    alert("Email atau password salah!");
+    alert("Email or password incorrect!");
   }
 });

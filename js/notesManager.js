@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const editId = localStorage.getItem("editId");
   let editNoteData = null;
 
-  // Kalau mode edit → isi field dulu
+  // Kalau mode edit, isi field dulu
   if (editId) {
     const notes = getNotes();
     editNoteData = notes.find((n) => n.id == editId);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const color = document.getElementById("colorValue").value;
 
     if (!title || !category || !description) {
-      alert("Isi semua field!");
+      alert("Fill all field!");
       return;
     }
 

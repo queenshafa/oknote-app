@@ -149,8 +149,8 @@ closeModal.addEventListener("click", () => {
 // pilih warna
 colorChoices.forEach((c) => {
   c.addEventListener("click", () => {
-    colorChoices.forEach((x) => x.classList.remove("color-selected"));
-    c.classList.add("color-selected");
+    colorChoices.forEach((x) => x.classList.remove("selected"));
+    c.classList.add("selected");
     selectedColor = c.getAttribute("data-color");
   });
 });

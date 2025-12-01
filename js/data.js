@@ -1,4 +1,4 @@
-// KEY UTAMA LOCAL STORAGE
+// Key localStorage
 const NOTES_KEY = "notes";
 
 // Ambil semua notes
